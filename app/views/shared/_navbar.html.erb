@@ -1,0 +1,130 @@
+<header class="navbar-light header-static">
+<!-- <header class="navbar-dark navbar-transparent header-static"> -->
+
+
+
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand" href="index.html">
+        <%= image_tag "logo.svg", class: "light-mode-item navbar-brand-item" %>
+        <%= image_tag "logo.svg", class: "dark-mode-item navbar-brand-item" %>
+			</a>
+			<!-- Logo END -->
+
+			<!-- Responsive navbar toggler -->
+			<button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-animation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+			<!-- Main navbar START -->
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+
+				<ul class="navbar-nav navbar-nav-scroll ms-auto">
+					<!-- Nav item 1 Demos -->
+					
+					<!-- Nav item 2 Pages -->
+					<div class="d-flex my-1">
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="add-produce">Add Produce</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="browse-produce">Browse Produce</a>
+						</li>
+
+						<%
+=begin%>
+ <% if (!user_signed_in?) %>
+							<li class="nav-item my-1">
+								<div class="d-grid gap-2 my-2 d-md-block">
+									<a class="btn btn-primary btn-xs mr-1 my-1" href="docs/index.html" target="_blank">
+									Log In
+									</a>
+									<a class="btn btn-success btn-xs ml-1 my-1" href="docs/index.html" target="_blank">
+									Register
+									</a>
+								
+								</div>
+							</li>
+						<% end %> 
+<%
+=end%>
+					</div>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Nav right START -->
+			<ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+        <!-- Notification dropdown END -->
+
+				
+					<li class="nav-item ms-2 dropdown">
+						<a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+							<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-2" %>
+						</a>
+						
+						<ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3" aria-labelledby="profileDropdown">
+							<!-- Profile info -->
+							<li class="px-3">
+								<div class="d-flex align-items-center position-relative">
+									<!-- Avatar -->
+									<div class="avatar me-3">
+										<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-circle" %>
+									</div>
+									<div>
+										<a class="h6 stretched-link" href="#">Web Deve</a>
+										<p class="small m-0">Web Developer</p>
+									</div>
+								</div>
+								<a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="docs/index.html" target="_blank">
+								View Profile
+								</a>
+
+							
+							</li>
+							<!-- Links -->
+							<li> 
+								<a class="dropdown-item" href="docs/index.html" target="_blank">
+									<i class="fa-fw bi bi-card-text me-2"></i>Dashboard
+								</a> 
+							</li>
+							<li>
+								<a class="dropdown-item" href="settings.html">
+									<i class="bi bi-gear fa-fw me-2"></i>
+									Settings & Privacy
+								</a>
+							</li>
+							<li> 
+								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+									<i class="fa-fw bi bi-life-preserver me-2"></i>Help & Support
+								</a> 
+							</li>
+							
+							<li class="dropdown-divider"></li>
+							<li>
+							
+							
+
+								<a class="dropdown-item bg-danger-soft-hover" href="docs/index.html" target="_blank">
+								<i class="bi bi-power fa-fw me-2"></i>
+								Log out
+								</a>
+
+							</li>
+							<li> <hr class="dropdown-divider"></li>
+						</ul>
+					</li>
+			  <!-- Profile START -->
+        
+			</ul>
+			<!-- Nav right END -->
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
