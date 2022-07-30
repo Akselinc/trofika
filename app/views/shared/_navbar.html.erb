@@ -37,23 +37,16 @@
 							<a class="nav-link" href="#" id="browse-produce">Browse Produce</a>
 						</li>
 
-						<%
-=begin%>
- <% if (!user_signed_in?) %>
+					
+            <% if (!user_signed_in?) %>
 							<li class="nav-item my-1">
 								<div class="d-grid gap-2 my-2 d-md-block">
-									<a class="btn btn-primary btn-xs mr-1 my-1" href="docs/index.html" target="_blank">
-									Log In
-									</a>
-									<a class="btn btn-success btn-xs ml-1 my-1" href="docs/index.html" target="_blank">
-									Register
-									</a>
-								
+                  <%= link_to "Login", new_user_session_path, class: 'btn btn-primary btn-xs mr-1 my-1' %>
+                  <%= link_to "Register", new_user_registration_path, class: 'btn btn-success btn-xs ml-1 my-1' %>
 								</div>
 							</li>
 						<% end %> 
-<%
-=end%>
+
 					</div>
 				</ul>
 			</div>
@@ -63,7 +56,7 @@
 			<ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
         <!-- Notification dropdown END -->
 
-				
+          <% if (user_signed_in?) %>
 					<li class="nav-item ms-2 dropdown">
 						<a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 							<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-2" %>
@@ -78,7 +71,7 @@
 										<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-circle" %>
 									</div>
 									<div>
-										<a class="h6 stretched-link" href="#">Web Deve</a>
+										<a class="h6 stretched-link" href="#"><%= current_user.email %></a>
 										<p class="small m-0">Web Developer</p>
 									</div>
 								</div>
@@ -95,10 +88,10 @@
 								</a> 
 							</li>
 							<li>
-								<a class="dropdown-item" href="settings.html">
-									<i class="bi bi-gear fa-fw me-2"></i>
-									Settings & Privacy
-								</a>
+                <%= link_to '<i class="bi bi-gear fa-fw me-2"></i>Profile'.html_safe, 
+										edit_user_registration_path,
+										class: 'dropdown-item' %>
+								
 							</li>
 							<li> 
 								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
@@ -111,15 +104,16 @@
 							
 							
 
-								<a class="dropdown-item bg-danger-soft-hover" href="docs/index.html" target="_blank">
-								<i class="bi bi-power fa-fw me-2"></i>
-								Log out
-								</a>
+								<%= link_to '<i class="bi bi-power fa-fw me-2"></i> Log Out'.html_safe, 
+										destroy_user_session_path,data: {method: :delete},
+										class: 'dropdown-item bg-danger-soft-hover' %>
+
 
 							</li>
 							<li> <hr class="dropdown-divider"></li>
 						</ul>
 					</li>
+          <% end %>
 			  <!-- Profile START -->
         
 			</ul>
