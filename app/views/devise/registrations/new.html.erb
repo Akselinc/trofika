@@ -1,29 +1,52 @@
-<h2>Sign up</h2>
+<div class="row justify-content-center align-items-center vh-100 py-5">
+  <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+    <!-- Sign up START -->
+    <div class="card card-body rounded-3 p-4 p-sm-5">
+      <div class="text-center mb-4">
+        <!-- Title -->
+        <h2 class="mb-2">Sign up</h2>
+        <span class="d-block">Already have an account? 
+          <%= link_to "Log In here", new_user_session_path %>
+        </span>
+      </div>
+      <!-- Form START -->
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'row g-3'}) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <!-- Email -->
+        <div class="mb-3 input-group-lg">
+          <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email'  %>
+          <small>Enter a valid email.</small>
+        </div>
+        <div class="mb-3 input-group-lg">
+          <%= f.text_field :full_name, class: 'form-control', placeholder: 'Enter your full name' %>
+          <small>Your full name. First and last</small>
+        </div>
+        <!-- Password -->
+        <div class="mb-3 input-group-lg">
+          <%= f.password_field :password, class: 'form-control', placeholder: 'Enter your password' %>
+          <small>
+            <% if @minimum_password_length %>
+              (<%= @minimum_password_length %> characters minimum)
+            <% end %>
+          </small>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="mb-3 input-group-lg">
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm your password' %>
+          <small>
+            Confirm your password
+          </small>
+        </div>
+        
+        <!-- Button -->
+        <div class="d-grid">
+          <%= f.submit "Register", class: "btn btn-lg btn-primary" %>
+        </div>
+        <!-- Copyright -->
+        <p class="mb-0 mt-3 text-center">©2022 <a target="_blank" href="https://eliasglyptis.com/">Elias Glyptis.</a> All rights reserved</p>
+      <% end %>
+      <!-- Form END -->
+    </div>
+    <!-- Sign up END -->
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

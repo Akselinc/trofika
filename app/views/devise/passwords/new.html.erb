@@ -1,16 +1,36 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="row justify-content-center align-items-center vh-100 py-5">
+  <!-- Main content START -->
+  <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+    <!-- Forgot password START -->
+    <div class="card card-body rounded-3 text-center p-4 p-sm-5">
+      <!-- Title -->
+      <h1 class="mb-2">Forgot password?</h1>
+      <p>Enter the email address associated with account.</p>
+      <!-- form START -->
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => 'mt-3' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <!-- New password -->
+        <div class="mb-3">
+          <div class="mb-3 input-group-lg">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Enter your email' %>
+          </div>
+        </div>
+        <!-- Back to sign in -->
+        <div class="mb-3">
+          <p>Back to <%= link_to "Log In", new_user_session_path %></p>
+        </div>
+        <div class="mb-3">
+          <p>Need an account? <%= link_to "Create Account", new_user_registration_path %></p>
+        </div>
+        <!-- Button -->
+        <div class="d-grid">
+          <%= f.submit "Reset password", class: "btn btn-lg btn-primary" %>
+        </div>
+        <!-- Copyright -->
+        <p class="mb-0 mt-3">©2022 <a target="_blank" href="https://www.eliasglyptis.com/">Elias Glyptis.</a> All rights reserved</p>
+      <% end %>
+      <!-- form END -->
+    </div>
+    <!-- Forgot password END -->
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div> <!-- Row END -->

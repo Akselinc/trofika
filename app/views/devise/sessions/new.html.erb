@@ -1,26 +1,49 @@
-<h2>Log in</h2>
+<div class="row justify-content-center align-items-center vh-100 py-5">
+  <div class="col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+    <!-- Sign up START -->
+    <div class="card card-body rounded-3 p-4 p-sm-5">
+      <div class="text-center mb-4">
+        <!-- Title -->
+        <h2 class="mb-2">Log In</h2>
+        <span class="d-block">Need an account? 
+          <%= link_to "Click here to create an account", new_user_registration_path %>
+        </span>
+      </div>
+      <!-- Form START -->
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => 'row g-3'}) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <!-- Email -->
+        <div class="mb-3 input-group-lg">
+          <%= f.label :email, class: 'form-label' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="mb-3 input-group-lg">
+          <%= f.label :password, class: 'form-label' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>        
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="mb-3 d-sm-flex justify-content-between">
+          <% if devise_mapping.rememberable? %>
+            <div>
+              <%= f.check_box :remember_me, class: "form-check-input" %>
+              <%= f.label :remember_me, class: "form-check-label" %>
+            </div>
+            <%= link_to "Forgot password?", new_user_password_path %>
+          <% end %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+       
+        
+        <!-- Button -->
+        <div class="d-grid">
+          <%= f.submit "Log In", class: "btn btn-lg btn-primary" %>
+        </div>
+        <!-- Copyright -->
+        <p class="mb-0 mt-3 text-center">©2022 <a target="_blank" href="https://eliasglyptis.com/">Elias Glyptis.</a> All rights reserved</p>
+      <% end %>
+      <!-- Form END -->
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <!-- Sign up END -->
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
