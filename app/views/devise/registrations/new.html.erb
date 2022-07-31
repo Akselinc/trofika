@@ -42,6 +42,9 @@
         <div class="d-grid">
           <%= f.submit "Register", class: "btn btn-lg btn-primary" %>
         </div>
+        <div class="d-grid">
+          <%= link_to "Register With Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-primary-soft" %>
+        </div>
         <!-- Copyright -->
         <p class="mb-0 mt-3 text-center">©2022 <a target="_blank" href="https://eliasglyptis.com/">Elias Glyptis.</a> All rights reserved</p>
       <% end %>
