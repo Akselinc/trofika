@@ -14,3 +14,23 @@
 .top-minus-27 {
   top: -27px;
 }
+
+.mt-110 {
+  margin-top: 110px;
+}
+.mt-120 {
+  margin-top: 120px;
+}
+.mt-130 {
+  margin-top: 130px;
+}
+
+/* Add product from dashboard page icon */
+
+.add-product-icon.bi-plus-circle-fill:hover {
+color: #0f6fec !important;
+}
+
+.add-product-icon.bi-plus-circle-fill:hover {
+fill: #fff
+}

@@ -1,2 +1,214 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<div class="mt-130">
+  <div class="row g-4">
+    <!-- Sidenav START -->
+    <div class="col-lg-3">
+      <!-- Advanced filter responsive toggler START -->
+      <div class="d-flex align-items-center d-lg-none">
+        <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+          <i class="btn btn-primary fw-bold fa-solid fa-sliders-h"></i>
+          <span class="h6 mb-0 fw-bold d-lg-none ms-2">My profile</span>
+        </button>
+      </div>
+      <!-- Advanced filter responsive toggler END -->
+      <!-- Navbar START-->
+      <nav class="navbar navbar-expand-lg mx-0">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar">
+          <!-- Offcanvas header -->
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <!-- Offcanvas body -->
+          <div class="offcanvas-body d-block px-2 px-lg-0">
+            <!-- Card START -->
+            <div class="card overflow-hidden">
+              <!-- Cover image -->
+              <div class="h-50px" style="background-image:url(<%= image_url('bg/01.jpg') %>); background-position: center; background-size: cover; background-repeat: no-repeat;">
+              </div>
+              <!-- Card body START -->
+              <div class="card-body pt-0">
+                <div class="text-center">
+                  <!-- Avatar -->
+                  <div class="avatar avatar-lg mt-n5 mb-3">
+                    <a href="#!">
+
+                      <%= image_tag "avatar/07.jpg", class: "avatar-img rounded border border-white border-3" %>
+                    </a>
+                  </div>
+                  <!-- Info -->
+                  <h5 class="mb-0">
+                    <a href="#!"><%= current_user.full_name %> </a>
+                  </h5>
+                  <small>Independent Farmer</small>
+                  <p class="mt-3"><%= current_user.about %></p>
+                  <!-- User stat START -->
+                  <div class="hstack gap-2 gap-xl-3 justify-content-center">
+                    <!-- User stat item -->
+                    <div>
+                      <h6 class="mb-0">256</h6>
+                      <small>Products</small>
+                    </div>
+                    <!-- Divider -->
+                    <div class="vr"></div>
+                    <!-- User stat item -->
+                    <div>
+                      <h6 class="mb-0">2.5K</h6>
+                      <small>Followers</small>
+                    </div>
+                    <!-- Divider -->
+                    <div class="vr"></div>
+                    <!-- User stat item -->
+                    <div>
+                      <h6 class="mb-0">365</h6>
+                      <small>Following</small>
+                    </div>
+                  </div>
+                  <!-- User stat END -->
+                </div>
+                <!-- Divider -->
+                <hr>
+                <!-- Side Nav START -->
+                <ul class="list-unstyled mt-3 mb-0">
+                  <li class="mb-2"> 
+                    <i class="bi bi-calendar-event"></i> 
+                    Member Since: <strong> <%= current_user.created_at.strftime('%b, %Y') %> </strong> 
+                  </li>
+                  <li class="mb-2"> 
+                    <i class="bi bi-geo-alt"></i>
+                    From: <strong> <%= current_user.location %> </strong> 
+                  </li>
+                  <li class="mb-2"> 
+                    <i class="bi bi-calendar-event"></i> 
+                    Status: <strong> <% if current_user.status %>Online<% else %>Offline<% end %></strong> 
+                  </li>
+                 
+                </ul>
+                <!-- Side Nav END -->
+              </div>
+              <!-- Card body END -->
+              <!-- Card footer -->
+              <div class="card-footer text-center py-2">
+               
+                <a class="btn btn-link" href="#" data-bs-toggle="modal" data-bs-target="#modalEditDetails">
+                  <i class="fa-solid fa-pencil  pe-1"></i> Edit Details
+                </a>
+
+              </div>
+            </div>
+            <!-- Card END -->
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar END-->
+    </div>
+    <!-- Sidenav END -->
+    <!-- Main content START -->
+    <div class="col-md-8 col-lg-6 vstack gap-4">
+      <!-- Event alert START -->
+      <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <strong>Payment Notice:</strong> Please add a credit card to process the orders pending. <a href="event-details.html" class="btn btn-sm btn-success mt-2 mt-lg-0 ms-lg-4">View Pending Orders</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <!-- Event alert END -->
+      <!-- Card START -->
+      <div class="card h-100">
+        <!-- Card header START -->
+        <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
+          <h1 class="h4 card-title">Your Farm Products</h1>
+          <!-- Button modal -->
+          <a class="btn btn-primary-soft" href="#">
+            <i class="fa-solid fa-plus pe-1"></i> 
+              Add Farm Products
+          </a>
+        </div>
+        <!-- Card header START -->
+        <!-- Card body START -->
+        <div class="card-body">
+          
+          
+          <div class="tab-pane fade text-center active show">
+
+          <div class="my-sm-5 py-sm-5">
+
+            <button class="border-0 bg-transparent" type="button">
+              <i class="add-product-icon display-1 text-muted bi bi-plus-circle-fill"></i>
+            </button>
+
+            <h4 class="mt-2 mb-3 text-body">You have not added any products.</h4>
+            <a class="btn btn-primary-soft" href="#">
+              <i class="fa-solid fa-plus pe-1"></i> 
+                Add Farm Products
+            </a>
+
+          </div>
+          </div>
+
+
+
+
+
+
+
+
+
+        </div>
+        <!-- Card body END -->
+      </div>
+      <!-- Card END -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit Details  -->
+
+<div class="modal fade" id="modalEditDetails" tabindex="-1" aria-labelledby="modalLabelEditDetails" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal feed header START -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabelEditDetails">Create event</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal feed header END -->
+      <!-- Modal feed body START -->
+      <div class="modal-body">
+        <!-- Form START -->
+        <%= form_for :user, url: users_edit_url(@user), action: :update, method: :post, remote: true, html: {class: 'row g-4'} do |f| %>
+          <!-- Title -->
+          <div class="col-12">
+            <label class="form-label">From / Location</label>
+            <%= f.text_field :location, placeholder: current_user.location, class: 'form-control' %>
+          </div>
+          <!-- Description -->
+          <div class="col-12">
+            <label class="form-label">About</label>
+            <%= f.text_area :about, placeholder: current_user.about, class: 'form-control' %>
+          </div>
+          <!-- Date -->
+          <div class="col-sm-12">
+            <label class="form-label">Status</label>
+            <%= f.select :status, options_for_select([['Online','true'],['Offline','false']], :selected => current_user.status), {}, { :class => 'form-select js-choice rounded' } %>
+          </div>
+          
+          <!-- Dropzone photo START -->
+          <div class="mb-3">
+            <label class="form-label">Change Avatar Here</label>
+            <div class="dropzone dropzone-default card shadow-none" data-dropzone='{"maxFiles":2}'>
+              <div class="dz-message">
+                <i class="bi bi-file-earmark-text display-3"></i>
+                <p>Drop new avatar or logo here or click to upload.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Dropzone photo END -->
+          <div class="modal-footer">
+          <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"> Cancel</button>
+          <%= f.submit 'Update', class: "btn btn-success-soft"%>
+      </div>
+        <% end %>
+        <!-- Form END -->
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
