@@ -1,16 +1,28 @@
-<header class="navbar-light header-static">
+<header class="navbar-light fixed-top header-static bg-mode">
 <!-- <header class="navbar-dark navbar-transparent header-static"> -->
 
 
 
 	<!-- Logo Nav START -->
-	<nav class="navbar navbar-expand-lg">
+	<nav class="navbar navbar-expand-lg pb-4">
+	
 		<div class="container">
 			<!-- Logo START -->
-			<a class="navbar-brand" href="index.html">
+		
+ 			<a class="navbar-brand" href="index.html">
         <%= image_tag "logo.svg", class: "light-mode-item navbar-brand-item" %>
         <%= image_tag "logo.svg", class: "dark-mode-item navbar-brand-item" %>
-			</a>
+			</a> 
+
+			
+
+			<a class="navbar-toggler icon-md btn btn-light p-0" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <span class="navbar-toggler-animation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </a>
 			<!-- Logo END -->
 
 			<!-- Responsive navbar toggler -->
@@ -25,11 +37,19 @@
 			<!-- Main navbar START -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
+				<div class="nav mt-3 mt-lg-0 flex-nowrap align-items-center px-4 px-lg-0">
+          <div class="nav-item w-100">
+            <form class="rounded position-relative">
+              <input class="form-control ps-5 bg-light" type="search" placeholder="Search..." aria-label="Search">
+              <button class="btn bg-transparent px-2 py-0 position-absolute top-50 start-0 translate-middle-y" type="submit"><i class="bi bi-search fs-5"> </i></button>
+            </form>
+          </div>
+        </div>
+
 				<ul class="navbar-nav navbar-nav-scroll ms-auto">
 					<!-- Nav item 1 Demos -->
 					
 					<!-- Nav item 2 Pages -->
-					<div class="d-flex my-1">
 						<li class="nav-item">
 							<a class="nav-link" href="#" id="add-produce">Add Produce</a>
 						</li>
@@ -40,14 +60,13 @@
 					
             <% if (!user_signed_in?) %>
 							<li class="nav-item my-1">
-								<div class="d-grid gap-2 my-2 d-md-block">
-                  <%= link_to "Login", new_user_session_path, class: 'btn btn-primary btn-xs mr-1 my-1' %>
-                  <%= link_to "Register", new_user_registration_path, class: 'btn btn-success btn-xs ml-1 my-1' %>
+								<div class="d-grid gap-4 my-2 d-md-block">
+                  <%= link_to "Login", new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
+                  <%= link_to "Register", new_user_registration_path, class: 'btn btn-outline-success btn-sm' %>
 								</div>
 							</li>
 						<% end %> 
 
-					</div>
 				</ul>
 			</div>
 			<!-- Main navbar END -->
@@ -117,6 +136,78 @@
 			</ul>
 			<!-- Nav right END -->
 		</div>
+		
 	</nav>
 	<!-- Logo Nav END -->
+
+
+
+	<nav class="navbar navbar-expand-lg bg-white justify-content-center top-minus-27 border-top border-1 border-dark">
+		<div class="container">
+			<div class="navbar-nav navbar-nav-scroll">
+				<div class="d-flex my-1">
+
+					<li class="nav-item">
+						<%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sell Food</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="albums.html">Add Food</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buy Food</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="albums.html">Post Food Request</a></li>
+							<li> <a class="dropdown-item" href="albums.html">Manage Food Requests</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customer Requests</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="albums.html">Active Requests</a></li>
+							<li> <a class="dropdown-item" href="albums.html">Offers you sent</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orders</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="albums.html">Selling Orders</a></li>
+							<li> <a class="dropdown-item" href="albums.html">Buying Orders</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<%= link_to "Earnings", dashboard_path, class: "nav-link" %>
+						
+					</li>
+
+					<li class="nav-item">
+						<%= link_to "Messages", dashboard_path, class: "nav-link" %>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="albums.html">Payment Method</a></li>
+							<li> <a class="dropdown-item" href="albums.html">Payout Method</a></li>
+						</ul>
+					</li>
+
+
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+					
+	
+
+	
 </header>
+	

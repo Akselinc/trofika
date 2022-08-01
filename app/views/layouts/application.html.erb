@@ -7,17 +7,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
+    
+    <%= render "shared/side_menu_bar" %>
     <%= render "shared/navbar" %>
     <%= render "shared/notifications" %>
+    <%= render "shared/bottom_navbar" %>
+    
     <main>
       <!-- Container START -->
       <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      
       <%= yield %>
+      
     </main>
   </body>
 </html>

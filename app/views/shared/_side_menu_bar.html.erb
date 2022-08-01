@@ -1,0 +1,35 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body side-menu-bar-mobile">
+      
+      
+        
+        
+          
+        <!-- Links -->
+          <a class="dropdown-item" href="docs/index.html" target="_blank">
+            <i class="fa-fw bi bi-card-text me-2"></i>Dashboard
+          </a> 
+          <%= link_to '<i class="bi bi-gear fa-fw me-2"></i>Profile'.html_safe, 
+              edit_user_registration_path,
+              class: 'dropdown-item' %>
+          
+          <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+            <i class="fa-fw bi bi-life-preserver me-2"></i>Help & Support
+          </a> 
+        
+        <div class="dropdown-divider"></div>
+        
+        
+
+          <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+            <i class="fa-fw bi bi-life-preserver me-2"></i>Help & Support
+          </a> 
+
+
+        <li> <hr class="dropdown-divider"></li>
+  </div>
+</div>

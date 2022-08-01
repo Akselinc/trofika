@@ -1,0 +1,16 @@
+.side-menu-bar-mobile dropdown-item a {
+  padding: 0.6 rem 0.4 rem !important;
+  font-size: 1.4 rem !important;
+}
+
+/* The navigation bar */
+.only-bottom-navbar {
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+}
+
+/* Navbar secondary horizontal menu */
+.top-minus-27 {
+  top: -27px;
+}
