@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  video: MyString
+  active: false
+  has_variant: false
+  has_single_pricing: MyString
+  user: one
+  category: one
+
+two:
+  title: MyString
+  video: MyString
+  active: false
+  has_variant: false
+  has_single_pricing: MyString
+  user: two
+  category: two

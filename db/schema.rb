@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_01_142840) do
+ActiveRecord::Schema.define(version: 2022_08_02_150149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,6 +44,26 @@ ActiveRecord::Schema.define(version: 2022_08_01_142840) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "farm_products", force: :cascade do |t|
+    t.string "title"
+    t.string "video"
+    t.boolean "active", default: false
+    t.boolean "has_variant", default: false
+    t.string "has_single_pricing", default: "f"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_farm_products_on_category_id"
+    t.index ["user_id"], name: "index_farm_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,4 +87,6 @@ ActiveRecord::Schema.define(version: 2022_08_01_142840) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "farm_products", "categories"
+  add_foreign_key "farm_products", "users"
 end
