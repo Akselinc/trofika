@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(current_user_params)
       flash[:notice] = "Successfully saved..."    
     else
-      flash[:alert] = "Did not update. Something went wrong"
+      # flash[:alert] = "Did not update. Something went wrong"
+      flash[:alert] =  {error: @user.errors.full_messages.join(', ')}
     end
 
     redirect_to dashboard_path
@@ -15,6 +16,10 @@ class UsersController < ApplicationController
   end
  
   def dashboard
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
@@ -25,7 +30,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def current_user_params
-      params.require(:user).permit(:about, :location, :status, :language)
+      params.require(:user).permit(:about, :location, :status, :language, :avatar)
     end
 
 end

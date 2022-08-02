@@ -15,6 +15,10 @@
   top: -27px;
 }
 
+.mt-50 {
+  margin-top: 50px;
+}
+
 .mt-110 {
   margin-top: 110px;
 }
@@ -33,4 +37,13 @@ color: #0f6fec !important;
 
 .add-product-icon.bi-plus-circle-fill:hover {
 fill: #fff
+}
+
+/* Public profile user reviews no hover no chnage color */
+.list-group-item-action.no-hover-effects:hover, 
+.list-group-item-action.no-hover-effects:focus {
+  z-index: 1;
+  color: #676a79;
+  text-decoration: none;
+  background-color: #fff;
 }

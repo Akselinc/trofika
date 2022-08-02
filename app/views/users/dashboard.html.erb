@@ -31,7 +31,7 @@
                   <div class="avatar avatar-lg mt-n5 mb-3">
                     <a href="#!">
 
-                      <%= image_tag "avatar/07.jpg", class: "avatar-img rounded border border-white border-3" %>
+                      <%= image_tag avatar_url(current_user), class: "avatar-img rounded border border-white border-3" %>
                     </a>
                   </div>
                   <!-- Info -->
@@ -77,9 +77,21 @@
                     From: <strong> <%= current_user.location %> </strong> 
                   </li>
                   <li class="mb-2"> 
-                    <i class="bi bi-calendar-event"></i> 
+                    <i class="bi bi-plugin"></i> 
                     Status: <strong> <% if current_user.status %>Online<% else %>Offline<% end %></strong> 
                   </li>
+                  
+                  <li class="mb-2"> 
+                    <i class="bi bi-facebook text-primary"></i>
+                    <span class="text-primary">
+                      <% if current_user.uid %>
+                        Facebook Verified
+                      <% else %>
+                        <%= link_to "Connect to Facebook", user_facebook_omniauth_authorize_path %>
+                      <% end %>
+                    </span> 
+                  </li>
+                  
                  
                 </ul>
                 <!-- Side Nav END -->
@@ -142,14 +154,6 @@
           </div>
           </div>
 
-
-
-
-
-
-
-
-
         </div>
         <!-- Card body END -->
       </div>
@@ -176,12 +180,12 @@
           <!-- Title -->
           <div class="col-12">
             <label class="form-label">From / Location</label>
-            <%= f.text_field :location, placeholder: current_user.location, class: 'form-control' %>
+            <%= f.text_field :location, value: current_user.location, class: 'form-control' %>
           </div>
           <!-- Description -->
           <div class="col-12">
             <label class="form-label">About</label>
-            <%= f.text_area :about, placeholder: current_user.about, class: 'form-control' %>
+            <%= f.text_area :about, value: current_user.about, class: 'form-control' %>
           </div>
           <!-- Date -->
           <div class="col-sm-12">
@@ -191,19 +195,21 @@
           
           <!-- Dropzone photo START -->
           <div class="mb-3">
-            <label class="form-label">Change Avatar Here</label>
-            <div class="dropzone dropzone-default card shadow-none" data-dropzone='{"maxFiles":2}'>
-              <div class="dz-message">
-                <i class="bi bi-file-earmark-text display-3"></i>
-                <p>Drop new avatar or logo here or click to upload.</p>
-              </div>
+            <div style="width: 80px;">
+              <%= image_tag avatar_url(current_user), class: 'avatar-img rounded border border-white border-3' %>
             </div>
+            
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Change or add a new avatar or logo</label>
+              <%= f.file_field :avatar, class: 'form-control' %>
+            </div>
+           
           </div>
           <!-- Dropzone photo END -->
           <div class="modal-footer">
-          <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"> Cancel</button>
-          <%= f.submit 'Update', class: "btn btn-success-soft"%>
-      </div>
+            <button type="button" class="btn btn-danger-soft me-2" data-bs-dismiss="modal"> Cancel</button>
+            <%= f.submit 'Update', class: "btn btn-success-soft"%>
+          </div>
         <% end %>
         <!-- Form END -->
       </div>

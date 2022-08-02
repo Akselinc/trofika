@@ -78,7 +78,8 @@
           <% if (user_signed_in?) %>
 					<li class="nav-item ms-2 dropdown">
 						<a class="nav-link btn icon-md p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-							<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-2" %>
+							<%= image_tag avatar_url(current_user), class: "avatar-img rounded-2" %>
+							
 						</a>
 						
 						<ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3" aria-labelledby="profileDropdown">
@@ -87,7 +88,7 @@
 								<div class="d-flex align-items-center position-relative">
 									<!-- Avatar -->
 									<div class="avatar me-3">
-										<%= image_tag "avatar/07.jpg", class: "avatar-img rounded-circle" %>
+										<%= image_tag avatar_url(current_user), class: "avatar-img rounded-circle" %>
 									</div>
 									<div>
 										<a class="h6 stretched-link" href="#"><%= current_user.full_name %></a>

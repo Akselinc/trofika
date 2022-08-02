@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/users/:id', to: 'users#show'
   get '/dashboard', to: 'users#dashboard'
   post '/users/edit', to: 'users#update'
   root 'pages#home'
