@@ -1,4 +1,4 @@
-<div class="mt-130">
+<div class="mt-50">
   <div class="row g-4">
     <!-- Sidenav START -->
     <div class="col-lg-3">
@@ -127,15 +127,16 @@
         <div class="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
           <h1 class="h4 card-title">Your Farm Products</h1>
           <!-- Button modal -->
-          <a class="btn btn-primary-soft" href="#">
-            <i class="fa-solid fa-plus pe-1"></i> 
-              Add Farm Products
+          <a class="btn btn-primary-soft" href="#" data-bs-toggle="modal" data-bs-target="#modalAddFarmProduct">  
+            
           </a>
+          <%= link_to new_farm_product_path, class: 'btn btn-primary-soft' do %>
+            <i class="fa-solid fa-plus pe-1"></i> Add Farm Products
+          <% end %>
         </div>
         <!-- Card header START -->
         <!-- Card body START -->
         <div class="card-body">
-          
           
           <div class="tab-pane fade text-center active show">
 
@@ -218,3 +219,5 @@
     </div>
   </div>
 </div>
+
+

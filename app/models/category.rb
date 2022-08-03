@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :farm_products
+  has_many :products
 end

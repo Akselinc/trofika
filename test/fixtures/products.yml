@@ -4,8 +4,7 @@ one:
   title: MyString
   video: MyString
   active: false
-  has_variant: false
-  has_single_pricing: MyString
+  has_single_pricing: false
   user: one
   category: one
 
@@ -13,7 +12,6 @@ two:
   title: MyString
   video: MyString
   active: false
-  has_variant: false
-  has_single_pricing: MyString
+  has_single_pricing: false
   user: two
   category: two

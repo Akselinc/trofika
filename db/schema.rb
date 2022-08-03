@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_150149) do
+ActiveRecord::Schema.define(version: 2022_08_03_170115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,18 +52,29 @@ ActiveRecord::Schema.define(version: 2022_08_02_150149) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "farm_products", force: :cascade do |t|
+  create_table "pricings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "delivery_time"
+    t.decimal "price"
+    t.integer "pricing_type"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_pricings_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "video"
-    t.boolean "active", default: false
-    t.boolean "has_variant", default: false
-    t.string "has_single_pricing", default: "f"
+    t.boolean "active"
+    t.boolean "has_single_pricing", default: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_farm_products_on_category_id"
-    t.index ["user_id"], name: "index_farm_products_on_user_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,6 +98,7 @@ ActiveRecord::Schema.define(version: 2022_08_02_150149) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "farm_products", "categories"
-  add_foreign_key "farm_products", "users"
+  add_foreign_key "pricings", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
 end
