@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one_attached :avatar
+  has_many :farm_products
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,7 +12,7 @@ class User < ApplicationRecord
   # validates :avatar, allow_blank: true, on: :update, format: { 
   #   with: %r{\.(gif|jpg|jpeg|png)\z}i, message: ' - Please upload only images with file extensions of: jpg, png or gif.'
   # }
-  
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
     if user
